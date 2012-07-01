@@ -9,7 +9,7 @@ Currently gemcast runs as a normal CGI program, meaning that it's not compatible
 
 The main bits to understand about gemcast are:
 
-- It uses filsystem-based repository.  This means that it reads files (ending in .txt and .box) from your data directory (configured in config.rb) and renders them into a (currently only HTML) page.
+- It uses filsystem-based repository.  This means that it reads files (ending in .txt and .box) from your data directory (configured in config.rb) and renders them into a page or RSS tag.  See the gemcast_data directory included with the code for an example of how a data directory might look.
 
 - .txt files are rendered as dated log entries - the main content of the site.
 
@@ -20,6 +20,7 @@ The main bits to understand about gemcast are:
 - It "pours" your body, entry, and box content into templates that are kept in the ./templates directory (or wherever you configure it to look).  The templates allow you to separate your content from its presentation.  During generation, values are replaced into the templates, including the log entry text, box text, dates, etc.  Variables are specified in the templates using Ruby's replacement syntax:  #{variable}.
 
 - It has been production tested only under Apache running on Solaris 7 on a Sun Ultra 1.  Unit testing has been done on Mac OS X.
+
 
 
 Installation
