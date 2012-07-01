@@ -1,0 +1,14 @@
+<!-------------- ENTRY --------------->
+<span class="log_entry_title"><a name="#{entry_id}">#{entry_title}</a></span><br>
+<span class="log_entry_category"><a href="#{script_root}#{entry_category}">#{entry_category}</a></span><br>
+<span class="log_entry_text">
+#{entry_text}
+</span>
+
+<p class="log_entry_date">
+Posted #{entry_date} &nbsp;&nbsp; 
+<a href="#{script_root}#{entry_category}##{entry_id}">permalink</a>
+</p>
+<p>&nbsp;</p>
+
+

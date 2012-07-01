@@ -1,0 +1,5 @@
+Ruby Really Rocks!
+Ruby keeps amazing me.  As I add functionality to this weblogging app, and doing major 
+refactorings, I keep expecting things to fall apart a bit.  They never do.  The app just 
+keeps on working, and hopefully, the code is getting prettier and prettier and the overall 
+design more and more elegant.

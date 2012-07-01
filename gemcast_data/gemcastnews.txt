@@ -1,0 +1,25 @@
+<i>gem</i>cast Progress
+So far, gemcast is composed of the following classes:
+<ul>
+<li>Body
+<li>BreadCrumbs
+<li>Categories
+<li>Category
+<li>Config
+<li>Factory
+<li>FileLogEntry
+<li>FileModel
+<li>FileTemplate
+<li>LogEntries
+<li>LogEntry
+<li>Model
+<li>Template
+<li>TemplateContent
+<li>TemplatedContentRenderer
+</ul>
+
+<p>I got a start on creating the entry you're reading by running the following command:</p>
+
+<pre>grep '^class' *.rb | awk '{print "&lt;li&gt;" $2}' | sort > gemcast_data/gemcastnews.txt</pre>
+
+<p>The ability to do such a thing is part of the power of using a file-based weblog system.</p>

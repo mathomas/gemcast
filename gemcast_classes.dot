@@ -1,0 +1,13 @@
+digraph {
+  graph [ ratio = "0.5" ]
+  node [ shape = box ]
+  edge [ arrowhead = empty ]
+DatedEntry -> Content
+TemplatedContent -> Content
+LogEntries -> TemplatedContent
+SidebarEntries -> TemplatedContent
+Categories -> Content
+BreadCrumbs -> Content
+Miscellaneous -> Content
+FileStore -> Store
+}

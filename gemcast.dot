@@ -1,0 +1,18 @@
+digraph {
+  node [ shape = box ]
+engine -> factory
+engine -> model
+engine -> content
+engine -> config
+engine -> html
+engine -> rss/0.9
+environment -> cgi
+factory -> filestore
+filestore -> config
+filestore -> store
+filestore -> model
+filestore -> find
+filestore -> date
+gemcast -> engine
+gemcast -> environment
+}

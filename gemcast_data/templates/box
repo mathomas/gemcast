@@ -1,0 +1,12 @@
+<table width="100%">
+
+<tr><td class="box_header">
+<span class="box_title">#{entry_title}</span>
+</td></tr>
+
+<tr><td class="box_content">
+<span class="box_text">#{entry_text}</span>
+</td></tr>
+
+</table>
+<p>&nbsp</p>
