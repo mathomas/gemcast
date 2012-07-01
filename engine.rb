@@ -87,6 +87,8 @@ end
 #----------------------------------------------------
 # RssFeed - represents the RSS feed content to be
 # returned.
+# TODO:  This was a pretty quick-and-dirty hack
+#        and is not as configurable as it should be!
 #----------------------------------------------------
 require "rss/0.9"
 class RssFeed
