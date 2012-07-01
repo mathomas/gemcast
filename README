@@ -1,1 +1,48 @@
-put contents from readme! in here
+=====================
+gemcast README
+mike_thomas@yahoo.com
+=====================
+
+Gemcast is a blosxom-like weblogging engine written in Ruby.  By blosxom-like, I mean that gemcast uses the filesystem as its "database" of log entries (although I've gone to some pains to keep this dependency somewhat abstracted in the code).  I wrote the first version of gemcast in a weekend, while also learning Ruby.  While writing gemcast, I referred to James Britt's Blogtari! weblog engine, also written in Ruby.  I didn't use any of his implementation or design whatsoever, but gemcast's specification is somewhat like Blogtari!.  I didn't even look at blosxom (or the ruby Cherry Blosxom) implementation.
+
+Currently gemcast runs as a normal CGI program, meaning that it's not compatible with FastCGI or mod_ruby.  I just don't care enough about performance at this point to worry about it.
+
+The main bits to understand about gemcast are:
+
+- It uses filsystem-based repository.  This means that it reads files (ending in .txt and .box) from your data directory (configured in config.rb) and renders them into a (currently only HTML) page.
+
+- .txt files are rendered as dated log entries - the main content of the site.
+
+- .box files are rendered as 'sidebar' entries - the auxiliary content of the site.
+
+- Content can be organized into subdirectories (known as categories) however you choose.  Sidebar content (.box files) contained in a given directory is presented only when the user's context is that directory (I'm questioning this decision a bit, but that's the way it is for now).
+
+- It "pours" your body, entry, and box content into templates that are kept in the ./templates directory (or wherever you configure it to look).  The templates allow you to separate your content from its presentation.  During generation, values are replaced into the templates, including the log entry text, box text, dates, etc.  Variables are specified in the templates using Ruby's replacement syntax:  #{variable}.
+
+- It has been production tested only under Apache running on Solaris 7 on a Sun Ultra 1.  Unit testing has been done on Mac OS X.
+
+
+Installation
+============
+Follow these steps to install gemcast (I'm assuming you have Ruby and Apache already set up):
+
+0) Copy the script files (*.rb) into a directory you've set up as a script directory, say '/website/weblog'.  Make sure that at gemcast.rb is executable.
+
+1) Tell Apache about the script directory in httpd.conf:
+   ...
+   ScriptAlias /weblog/ "/website/weblog/"
+   ...
+2) Set up a gemcast_data (or whatever you want to call it) directory to hold your content.  The distribution tar includes some goofy test data that you can use to test your installation.
+
+3) Configure gemcast by modifying the config.rb script.  The script is fairly well-commented, so you should be able to figure out what to do with a minimum of fuss (I hope).
+
+
+Stuff that needs doing
+(as of v0.0.4)
+======================
+First, gemcast is probably a very naive implementation of how a Ruby blosxom-like weblog should be done.  I kind of hacked it together while I was learning Ruby, and so it's probably not good idiomatic Ruby, and the design is likely very questionable (at least it's divided fairly well into classes, and those classes are in reasonable "modules").  My approach to generating the content is probably the most questionable part.  On the one hand, it strikes me as powerful, on the other hand it strikes me as not powerful enough to account for the complexity of the implementation.  You be the judge.  Write me if I'm wacko.
+
+There's a lot of stuff that gemcast doesn't do, that I think it should before I make it 'real' and announce it anywhere:
+- "Flavors".  Pretty much required in order to be a blosxom clone.  However, being a blosxom clone wasn't my main goal - I just liked the idea of a filesystem-driven weblog engine.
+- RSS feeds.  Should be do-able via flavors, when implemented.
+- Date queries.  Currently, gemcast only allows weblog "queries" by category structure.  Most blosxom-style weblogs allow queries by date, which allows archiving features.  While implementing this is not conceptually hard (just requiring the Store class to do some decision-making about what the query is asking for, and returning the files that satisfy it), my sidebar-content design decision complicates things a bit, since it's based on site category structure (oh well, I can live without date queries for now :-)).
