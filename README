@@ -44,5 +44,3 @@ First, gemcast is probably a very naive implementation of how a Ruby blosxom-lik
 
 There's a lot of stuff that gemcast doesn't do, that I think it should before I make it 'real' and announce it anywhere:
 - "Flavors".  Pretty much required in order to be a blosxom clone.  However, being a blosxom clone wasn't my main goal - I just liked the idea of a filesystem-driven weblog engine.
-- RSS feeds.  Should be do-able via flavors, when implemented.
-- Date queries.  Currently, gemcast only allows weblog "queries" by category structure.  Most blosxom-style weblogs allow queries by date, which allows archiving features.  While implementing this is not conceptually hard (just requiring the Store class to do some decision-making about what the query is asking for, and returning the files that satisfy it), my sidebar-content design decision complicates things a bit, since it's based on site category structure (oh well, I can live without date queries for now :-)).
