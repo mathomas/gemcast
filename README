@@ -1,6 +1,7 @@
 =====================
 gemcast README
 mike_thomas@yahoo.com
+2005-2007 or so
 =====================
 
 Gemcast is a blosxom-like weblogging engine written in Ruby.  By blosxom-like, I mean that gemcast uses the filesystem as its "database" of log entries (although I've gone to some pains to keep this dependency somewhat abstracted in the code).  I wrote the first version of gemcast in a weekend, while also learning Ruby.  While writing gemcast, I referred to James Britt's Blogtari! weblog engine, also written in Ruby.  I didn't use any of his implementation or design whatsoever, but gemcast's specification is somewhat like Blogtari!.  I didn't even look at blosxom (or the ruby Cherry Blosxom) implementation.
@@ -9,7 +10,7 @@ Currently gemcast runs as a normal CGI program, meaning that it's not compatible
 
 The main bits to understand about gemcast are:
 
-- It uses filsystem-based repository.  This means that it reads files (ending in .txt and .box) from your data directory (configured in config.rb) and renders them into a page or RSS tag.  See the gemcast_data directory included with the code for an example of how a data directory might look.
+- It uses a filsystem-based repository.  This means that it reads files (ending in .txt and .box) from your data directory (configured in config.rb) and renders them into a page or RSS tag.  See the gemcast_data directory included with the code for an example of how a data directory might look.
 
 - .txt files are rendered as dated log entries - the main content of the site.
 
@@ -27,7 +28,7 @@ Installation
 ============
 Follow these steps to install gemcast (I'm assuming you have Ruby and Apache already set up):
 
-0) Copy the script files (*.rb) into a directory you've set up as a script directory, say '/website/weblog'.  Make sure that at gemcast.rb is executable.
+0) Copy the script files (*.rb) into a directory you've set up as a script directory, say '/website/weblog'.  Make sure that gemcast.rb is executable.
 
 1) Tell Apache about the script directory in httpd.conf:
    ...
@@ -38,8 +39,9 @@ Follow these steps to install gemcast (I'm assuming you have Ruby and Apache alr
 3) Configure gemcast by modifying the config.rb script.  The script is fairly well-commented, so you should be able to figure out what to do with a minimum of fuss (I hope).
 
 
+
 Stuff that needs doing
-(as of v0.0.4)
+(as of v0.1.0)
 ======================
 First, gemcast is probably a very naive implementation of how a Ruby blosxom-like weblog should be done.  I kind of hacked it together while I was learning Ruby, and so it's probably not good idiomatic Ruby, and the design is likely very questionable (at least it's divided fairly well into classes, and those classes are in reasonable "modules").  My approach to generating the content is probably the most questionable part.  On the one hand, it strikes me as powerful, on the other hand it strikes me as not powerful enough to account for the complexity of the implementation.  You be the judge.  Write me if I'm wacko.
 
