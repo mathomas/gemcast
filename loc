@@ -1,4 +1,0 @@
-echo "Including def/end"
-egrep -v '(^#|^$)' *.rb | wc -l
-echo "Excluding def/end" 
-egrep -v '(^#|^$|^ *def|^ *end)' *.rb | wc -l

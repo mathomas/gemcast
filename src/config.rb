@@ -14,12 +14,12 @@ class Config
 
   # The directory where gemcast starts looking for your content.
   # It can be relative or absolute.
-  ROOT_DATA_DIR     = "./gemcast_data"
-  #ROOT_DATA_DIR     = "../gemcast_data"
+  #ROOT_DATA_DIR     = "./gemcast_data"
+  ROOT_DATA_DIR     = "../gemcast_data"
   
   # The directory where gemcast looks for your templates.
-  TEMPLATE_DIR      = "./gemcast_data/templates"
-  #TEMPLATE_DIR      = "../gemcast_data/templates"
+  #TEMPLATE_DIR      = "./gemcast_data/templates"
+  TEMPLATE_DIR      = "../gemcast_data/templates"
 
   # The maximum number of entries rendered for any given query
   MAX_ENTRIES       = 2
